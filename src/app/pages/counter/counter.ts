@@ -1,0 +1,22 @@
+import { Component, OnInit, signal } from '@angular/core';
+
+@Component({
+  // selector: 'selector-name',
+  templateUrl: './counter.html',
+  styleUrl: './counter.scss'
+})
+
+export class counterPageComponent{
+  constructor() { }
+  contador = signal(0);
+
+  increseOne():void{
+    this.contador.update(v => v += 1);
+  }
+  refresh():void{
+    this.contador.set(0);
+  }
+  decreseOne():void{
+    this.contador.update(v => v -= 1);
+  }
+}
