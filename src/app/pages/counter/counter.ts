@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 
 @Component({
-  // selector: 'selector-name',
+  // selector: 'counter',
   templateUrl: './counter.html',
   styleUrl: './counter.scss'
 })
