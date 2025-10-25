@@ -1,0 +1,19 @@
+<div class="m-3">
+  <h1 class="text-center">Jokes</h1>
+
+
+  <div class="card text-center m-auto" style="width: 60rem;">
+    <div class="card-header">
+      Chistes
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Chiste Número #{{jokeId()+1}}</h5>
+      <p class="card-text">{{jokes[jokeId()].text}}</p>
+      <button (click)="getRandomJoke()" class="btn btn-primary">Otro chiste</button>
+    </div>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+  <a href="./">Home > </a>
+</div>
