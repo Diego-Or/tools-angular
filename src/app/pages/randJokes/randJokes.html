@@ -5,17 +5,18 @@
 
     <div class="card text-center m-auto" style="width: 60rem;">
         <div class="card-header">
-          Chistes
+          Chiste Número #{{jokeId()+1}}
         </div>
         <div class="card-body">
-          <h5 class="card-title">Chiste Número #{{jokeId()+1}}</h5>
           <p class="card-text">{{jokes[jokeId()].text}}</p>
-          <button (click)="getRandomJoke()" class="btn btn-primary">Otro chiste</button>
-        </div>
-        <div class="card-footer text-muted">
-          2 days ago
         </div>
       </div>
+
+      <div class="text-center">
+        <button (click)="getRandomJoke()" class="center btn btn-primary mt-4">Otro chiste</button>
+      </div>
+
+
   </div>
 </div>
 
