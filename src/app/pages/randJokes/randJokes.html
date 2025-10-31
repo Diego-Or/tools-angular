@@ -1,0 +1,22 @@
+
+<div class="centrado">
+  <div>
+    <h1 class="text-center">Jokes</h1>
+
+    <div class="card text-center m-auto" style="width: 60rem;">
+        <div class="card-header">
+          Chiste Número #{{jokeId()+1}}
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{jokes[jokeId()].text}}</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button (click)="getRandomJoke()" class="center btn btn-primary mt-4">Otro chiste</button>
+      </div>
+
+
+  </div>
+</div>
+
