@@ -1,9 +1,10 @@
-import { Component, OnInit, signal, computed } from '@angular/core';
+import { Component, signal} from '@angular/core';
 import { Jokes } from '../../interfaces/jokes';
 
 @Component({
   selector: 'randJokes',
-  templateUrl: 'randJokes.html'
+  templateUrl: 'randJokes.html',
+  styleUrls: ['./../../app.scss']
 })
 
 export class randjokesPageComponent{

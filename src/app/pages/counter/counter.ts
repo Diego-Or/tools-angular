@@ -3,7 +3,7 @@ import { Component, OnInit, signal } from '@angular/core';
 @Component({
   // selector: 'selector-name',
   templateUrl: './counter.html',
-  styleUrl: './counter.scss'
+  styleUrls: ['./counter.scss', './../../app.scss']
 })
 
 export class counterPageComponent{
