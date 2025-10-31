@@ -1,13 +1,18 @@
-<div class="container mt-4">
+<div class="centrado">
+  <div class="container mt-4">
   <h1 class="text-center">Calcula tu Edad</h1>
 
-  <div class="pt-5 text-center gap-4 w-25 m-auto">
+  <div class="pt-5 text-center gap-4 m-auto InputFecha">
     <div class="input-group mb-3">
       <span class="input-group-text" id="inputGroup-sizing-default">Fecha de nacimiento:</span>
-      <input type="date" class="form-control" aria-label="Ingresa la fecha de nacimiento" aria-describedby="Input de fecha">
+      <input type="date" class="form-control" aria-label="Ingresa la fecha de nacimiento" aria-describedby="Input de fecha" [value]="fechaNacimiento()" (input)="fechaNacimiento.set(fecha.value)" #fecha>
     </div>
     <button (click)="getAge()" type="button" class="btn btn-primary fw-bold ">Calcular</button>
   </div>
-  <a href="./">Home > </a>
+
+  @if (edad() != 0) {
+    <h4 class="text-center pt-4">Tu edad es: {{ edad() }}</h4>
+  }
 
 </div>
+
