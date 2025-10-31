@@ -8,16 +8,16 @@
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" >Counter</a>
+          <a class="nav-link" aria-current="page" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Tools</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" >Hero</a>
+          <a class="nav-link" routerLink="/counter" routerLinkActive="active">Contador</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/dragonball" routerLinkActive="active">Dragonball</a>
+          <a class="nav-link" routerLink="/jokes" routerLinkActive="active">Bromas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" >Dragonball Super</a>
+          <a class="nav-link" routerLink="/getage" routerLinkActive="active">Calculador de edad</a>
         </li>
       </ul>
 
