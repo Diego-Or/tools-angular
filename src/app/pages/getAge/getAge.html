@@ -10,8 +10,19 @@
     <button (click)="getAge()" type="button" class="btn btn-primary fw-bold ">Calcular</button>
   </div>
 
-  @if (edad() != 0) {
-    <h4 class="text-center pt-4">Tu edad es: {{ edad() }}</h4>
+  @if (edadStr()) {
+    <h5 class="text-center pt-4">
+      {{ edadObj().year }} Años<br>
+    </h5>
+    <h5 class="text-center pt-2">
+      {{ edadObj().month }} Meses<br>
+    </h5>
+    <h5 class="text-center pt-2">
+      {{ edadObj().days }} Dias<br>
+    </h5>
+    <h5 class="text-center pt-2">
+      {{ edadObj().hours }} Horas
+    </h5>
   }
 
 </div>

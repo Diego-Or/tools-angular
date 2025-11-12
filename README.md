@@ -2,6 +2,20 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.6.
 
+# Git Clone
+
+```bash
+git clone https://github.com/Diego-Or/tools-angular
+```
+
+## To create the aplication
+
+```bash
+npm install
+npm install -g @angular/cli
+
+```
+
 ## Development server
 
 To start a local development server, run:

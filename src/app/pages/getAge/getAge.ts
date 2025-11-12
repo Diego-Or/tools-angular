@@ -1,5 +1,6 @@
 import { Component, input, signal, output} from '@angular/core';
 import { DatePipe } from "@angular/common";
+import { Edad } from './../../interfaces/edad';
 
 @Component({
   selector: 'getAge',
@@ -12,26 +13,60 @@ export class getAgeComponent{
 
   fechaActual: Date = new Date();
   fechaNacimiento = signal('');
-  edad = signal(0);
+  edadObj = signal<Edad>({year: 0, month: 0, days: 0, hours: 0});
+  edadStr = signal("");
 
-  getAge(){
-    // Convertir la fecha de nacimiento (string) a tipo Date
+  getAge() {
     const nacimiento = new Date(this.fechaNacimiento());
+    const ahora = new Date();
 
-    // Calcular la diferencia de años
-    let edad = this.fechaActual.getFullYear() - nacimiento.getFullYear();
+    // Diferencia total en milisegundos
+    const diffMs = ahora.getTime() - nacimiento.getTime();
 
-    // Ajustar si aún no ha cumplido años este año
-    const mesActual = this.fechaActual.getMonth();
-    const diaActual = this.fechaActual.getDate();
-    const mesNacimiento = nacimiento.getMonth();
-    const diaNacimiento = nacimiento.getDate();
+    // Cálculo base de unidades de tiempo
+    const diffAnios = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 365.25));
+    const diffMeses = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 30.44));
+    const diffDias = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const diffHoras = Math.floor(diffMs / (1000 * 60 * 60));
 
-    if (mesActual < mesNacimiento || (mesActual === mesNacimiento && diaActual < diaNacimiento)) {
-      edad--;
+    // Cálculo más preciso: años, meses, días, horas
+    let anios = ahora.getFullYear() - nacimiento.getFullYear();
+    let meses = ahora.getMonth() - nacimiento.getMonth();
+    let dias = ahora.getDate() - nacimiento.getDate();
+    let horas = ahora.getHours() - nacimiento.getHours();
+
+    if (horas < 0) {
+      horas += 24;
+      dias--;
     }
 
-    this.edad.set(edad);
+    if (dias < 0) {
+      // Obtener los días del mes anterior
+      const mesAnterior = new Date(ahora.getFullYear(), ahora.getMonth(), 0).getDate();
+      dias += mesAnterior;
+      meses--;
+    }
+
+    if (meses < 0) {
+      meses += 12;
+      anios--;
+    }
+
+    this.edadObj.set({
+      year: anios,
+      month: meses,
+      days: dias,
+      hours: horas
+    });
+
+    // Si prefieres mostrarlo en consola o devolverlo:
+    console.log(`Edad: ${anios} años, ${meses} meses, ${dias} días y ${horas} horas`);
+    
+    this.edadStr.set(`
+      Edad: ${anios} años,
+      ${meses} meses,
+      ${dias} días
+      ${horas} horas`)
   }
 
 }
