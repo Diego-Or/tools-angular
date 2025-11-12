@@ -14,7 +14,6 @@ export class getAgeComponent{
   fechaActual: Date = new Date();
   fechaNacimiento = signal('');
   edadObj = signal<Edad>({year: 0, month: 0, days: 0, hours: 0});
-  edadStr = signal("");
 
   getAge() {
     const nacimiento = new Date(this.fechaNacimiento());
@@ -58,15 +57,6 @@ export class getAgeComponent{
       days: dias,
       hours: horas
     });
-
-    // Si prefieres mostrarlo en consola o devolverlo:
-    console.log(`Edad: ${anios} años, ${meses} meses, ${dias} días y ${horas} horas`);
-    
-    this.edadStr.set(`
-      Edad: ${anios} años,
-      ${meses} meses,
-      ${dias} días
-      ${horas} horas`)
   }
 
 }
